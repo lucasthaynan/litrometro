@@ -28,7 +28,7 @@ body {
 
 
 header {
-    background-color: var(--laranja-principal);
+    background-color: var(--laranja-principal);  
 }
 
 div.conteudo-header {
@@ -48,6 +48,12 @@ div.conteudo-header {
     color: var(--branco);
 }
 
+@media (max-width: 480px) {
+    .conteudo-header h1 {
+        font-size: 3.5rem;
+    }    
+}
+
 .conteudo-header > p {
     max-width: 650px;    
     width: 100%;
@@ -61,6 +67,14 @@ div.conteudo-header {
     color: var(--branco);
 }
 
+
+@media (max-width: 480px) {
+    .conteudo-header > p {
+        font-size: 1rem;
+        padding: 5px 20px 20px 20px;
+    }    
+}
+
 .conteudo-header > p#atualizacao {
     font-style: normal;
     font-weight: 500;
@@ -69,6 +83,13 @@ div.conteudo-header {
     text-align: center;
 
     color: #D6790C;
+}
+
+@media (max-width: 480px) {
+    .conteudo-header > p#atualizacao {
+        font-size: 0.9rem;
+        padding-top: 15px;
+    }    
 }
 
 button {
@@ -136,6 +157,12 @@ div.conteudo-main > section {
     background: #FFFFFF;
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+}
+
+@media (max-width: 480px) {
+    div.conteudo-main > section {
+        max-width: 85vw;
+    }    
 }
 
 div.container-buttons {
