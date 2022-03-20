@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Litrômetro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- 'defer' executa o javascript somente após a execução do html -->
+    <script src="main.js" defer></script>
+</head>
+<body>    
+    <header>
+        <div class="conteudo-header">
+            <h1>Litrômetro</h1>
+            <p>Monitor em tempo real dos preços dos combustíveis praticados nos postos de combustível em Maceió.</p>
+            <div class="container-buttons">
+                <button>Gasolina Com.</button>
+                <button>Gasolina Adt.</button>
+                <button>Etanol</button>
+                <button>Diesel</button>
+                <button>GNV</button>
+            </div>
+            <p id="atualizacao">Atualizado em 19/03/22, às 10h</p>
+        </div>
+    </header>
+    <main>
+        <div class="conteudo-main">
+            <section class="container preco-medio">
+                <p class="texto1">Preço médio do dia</p>
+                <p class="texto2">R$</p>
+                <p class="texto3">7,599</p>
+                <img src="items/alta.svg" alt="">
+                <div id="alta" class="bloco-percentual">
+                    <p class="texto4">3,8% de alta</p>
+                    <p class="texto5">nos últimos 30 dias</p>
+                </div>
+                
+            </section>
+            <section class="container preco-menor">
+                <p class="texto1">Menor preço do dia</p>
+                <p class="texto2">R$</p>
+                <p class="texto3">6,999</p>
+                <img src="items/queda.svg" alt="">
+                <div id="queda" class="bloco-percentual">
+                    <p class="texto4">0,3% de queda</p>
+                    <p class="texto5">nos últimos 30 dias</p>
+                </div>
+            </section>
+            <section class="container preco-maior">
+                <p class="texto1">Maior preço do dia</p>
+                <p class="texto2">R$</p>
+                <p class="texto3">8,799</p>
+                <img src="items/alta.svg" alt="">
+                <div id="alta" class="bloco-percentual">
+                    <p class="texto4">1,5% de alta</p>
+                    <p class="texto5">nos últimos 30 dias</p>
+                </div>
+            </section>
+            <section class="container grafico">
+                <!-- <img src="imagens/grafico.png" alt=""> -->
+                <canvas id="Chart-js" width="400" height="220"></canvas>
+
+            </section>
+            <section class="container noticias">
+                <h2>Notícias relacionadas</h2>
+                <div class="news">
+                    <img src="imagens/posto.png" alt="">
+                    <a href="http://">Preços da gasolina comum e diesel sofrem aumento em Maceió</a>                    
+                </div>
+                <div class="news">
+                    <img src="imagens/posto.png" alt="">
+                    <a href="http://">Preços da gasolina comum e diesel sofrem aumento em Maceió</a>      
+                </div>
+                <div class="news">
+                    <img src="imagens/posto.png" alt="">
+                    <a href="http://">Preços da gasolina comum e diesel sofrem aumento em Maceió</a>      
+                </div>
+                <div class="news">
+                    <img src="imagens/posto.png" alt="">
+                    <a href="http://">Preços da gasolina comum e diesel sofrem aumento em Maceió</a>      
+                </div>
+            </section>
+            <section class="container app">
+                <h4>Acompanhe os preços em tempo real com o app Abastece Maceió</h4>
+                <button>Baixe o app</button>
+                
+                <img src="imagens/print-tela.png" alt="">
+            </section>
+            <section class="container metodologia">
+                <h2>Metodologia</h2>
+
+                
+
+                <p><strong>Fonte dos dados</strong></p>
+
+                <p>As informações apresentadas pelo Litrômetro são coletadas diretamente das notas fiscais emitidas pelos próprios postos de combustíveis e repassadas pela Secretaria de Estado da Fazenda de Alagoas (Sefaz).</p>
+
+                <p><strong>Como funciona?</strong></p>
+
+                <p>Desde dezembro de 2018 o nosso programa, desenvolvido por meio da linguagem Python, busca de hora em hora as informações das notas fiscais relativas às vendas de combustível na cidade de Maceió e armazena tudo em um banco de dados.</p>
+
+                <p>Mais recentemente, em julho de 2019, passamos a coletar também os preços da gasolina em Arapiraca, segunda maior cidade de Alagoas. Estas informações são filtradas, categorizadas e atualizadas automaticamente na nossa base de dados.</p>
+
+                <p>Essa coleta só é possível graças à política de dados abertos existente na Sefaz de Alagoas, que disponibiliza um sistema de busca de dados conhecido como API (Aplication Programming Interface). Essa ferramenta permite que nosso programa consiga obter informações sobre os preços dos produtos de hora em hora, todos os dias, sem nenhuma intervenção manual.</p>
+
+                <p>A base de dados utilizada no Litrômetro é a mesma do aplicativo Abastece Maceió, também desenvolvido por nós, que informa os melhores preços dos combustíveis da capital alagoana desde o final de 2018.</p>
+
+                <p>Para disponibilizar este monitor a Agência Tatu desenvolveu um segundo programa, que acessa a nossa base de dados e cria visualizações que permitem o acompanhamento diário da média de preços da gasolina comum nas duas maiores cidades do Estado.</p>
+
+                <p>Acesse aqui a nossa base de dados completa.</p>
+                
+
+            </section>
+        </div>
+    </main>  
+    
+</body>
+</html>
