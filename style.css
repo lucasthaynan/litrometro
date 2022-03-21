@@ -504,11 +504,10 @@ section.container.preco-maior {
 }
 
 
-@media (max-width: 480px) {
-    
+@media (max-width: 480px) {    
 
     .conteudo-header > p {
-        font-size: 1rem;
+        font-size: 1rem;+
         padding: 5px 20px 20px 20px;
     }   
     
@@ -519,4 +518,19 @@ section.container.preco-maior {
    
 }
 
-
+@media (max-width: 600px) {
+    div.container-buttons {
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 560px;
+        width: 90%;
+        
+    }
+    
+    /* .conteudo-header button {
+        color: #fff;
+        background-color: var(--laranja-segundario);
+        padding: 10px 20px;
+        border-radius: 30px;
+    } */
+}
