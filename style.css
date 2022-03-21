@@ -520,7 +520,8 @@ section.container.preco-maior {
 
 @media (max-width: 600px) {
     div.container-buttons {
-        overflow: hidden;
+        /* MENU COM BARRA DE ROLAGEM HORIZONTAL */
+        overflow: auto;
         white-space: nowrap;
         max-width: 560px;
         width: 90%;
