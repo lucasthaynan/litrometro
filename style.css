@@ -428,6 +428,10 @@ section.container.metodologia > p {
         margin: auto 20px;
     }
 
+    .conteudo-header h1 {
+        font-size: 3.5rem;
+    }    
+
     /* INICIO */
 
     div.conteudo-main {
@@ -501,9 +505,7 @@ section.container.preco-maior {
 
 
 @media (max-width: 480px) {
-    .conteudo-header h1 {
-        font-size: 3.5rem;
-    }    
+    
 
     .conteudo-header > p {
         font-size: 1rem;
