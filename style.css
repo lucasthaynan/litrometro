@@ -126,7 +126,7 @@ div.conteudo-main {
     grid-template-rows: 1fr;
     grid-gap: 20px;
     justify-items: center;
-    padding: 0px 0px 150px 0px;   
+    padding: 0px 0px 0px 0px;   
 
     position: relative;
     top: -85px;
@@ -531,15 +531,12 @@ section.container.preco-maior {
     section.container.app > img {
         grid-column: 1/2;
         grid-row: 3/4;
-        width: 220px;    
-        position: relative;    
-        bottom: 0px;
+
     }
 
 }
     
 
-}
 
 
 @media (max-width: 480px) {    
