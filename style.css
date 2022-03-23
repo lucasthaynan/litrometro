@@ -380,6 +380,13 @@ section.container.metodologia > p {
     margin: 15px 0px;
 }
 
+footer.creditos {
+    background-color: #e2e2e2;
+    width: 100%;
+    text-align: center;
+    padding: 25px 0px;
+}
+
 @media (max-width: 740px) and (min-width: 645px) {
     main {
         margin: auto 20px;
