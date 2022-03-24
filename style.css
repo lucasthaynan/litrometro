@@ -475,6 +475,10 @@ footer.creditos {
         padding: 22px 60px;
     }
 
+    section > h2 {
+        font-size: 1.4rem;
+    }
+
     div.conteudo.main > section {
         max-width: 85vw;
         min-width: 85vw;
