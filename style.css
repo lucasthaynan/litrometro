@@ -460,19 +460,19 @@ footer.creditos {
     section.container.preco-medio {
         grid-column: 1/4;
         grid-row:1/2;
-        padding: 22px 50px;
+        padding: 22px 60px;
                 
     }
 
     section.container.preco-menor {
         grid-column: 1/4;
         grid-row:2/3;
-        padding: 22px 50px;
+        padding: 22px 60px;
     }
     section.container.preco-maior {
         grid-column: 1/4;
         grid-row:3/4;
-        padding: 22px 50px;
+        padding: 22px 60px;
     }
 
     div.conteudo.main > section {
