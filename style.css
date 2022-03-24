@@ -127,6 +127,7 @@ div.conteudo-main {
     grid-gap: 20px;
     justify-items: center;
     padding: 0px 0px 0px 0px;   
+    margin-bottom: -40px;
 
     position: relative;
     top: -85px;
@@ -384,7 +385,7 @@ footer.creditos {
     background-color: #e2e2e2;
     width: 100%;
     text-align: center;
-    padding: 25px 0px;
+    padding: 35px 0px;
 }
 
 @media (max-width: 740px) and (min-width: 645px) {
@@ -458,17 +459,20 @@ footer.creditos {
     
     section.container.preco-medio {
         grid-column: 1/4;
-        grid-row:1/2;  
+        grid-row:1/2;
+        padding: 22px 50px;
                 
     }
 
     section.container.preco-menor {
         grid-column: 1/4;
         grid-row:2/3;
+        padding: 22px 50px;
     }
     section.container.preco-maior {
         grid-column: 1/4;
         grid-row:3/4;
+        padding: 22px 50px;
     }
 
     div.conteudo.main > section {
@@ -552,8 +556,7 @@ section.container.preco-maior {
     .conteudo-header > p#atualizacao {
         font-size: 0.9rem;
         padding-top: 15px;
-    }  
-   
+    }   
 }
 
 @media (max-width: 600px) {
@@ -563,7 +566,6 @@ section.container.preco-maior {
         white-space: nowrap;
         max-width: 560px;
         width: 90%;
-        
     }
     
     /* .conteudo-header button {
