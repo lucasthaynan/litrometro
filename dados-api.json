@@ -1,0 +1,72 @@
+[
+    {
+      "gasolina": {
+        "data_atualizacao": "Atualizado em 30/3/2022, às 0h20",
+        "maior_ultima_data": "2022-03-29",
+        "maior_ultimo_valor": 7.999,
+        "maior_valor_variacao": "8.1% de alta",
+        "mediana_ultima_data": "2022-03-29",
+        "mediana_ultimo_valor": 6.999,
+        "mediana_variacao": "9.4% de alta",
+        "menor_ultima_data": "2022-03-29",
+        "menor_ultimo_valor": 6.739,
+        "menor_valor_variacao": "11.0% de alta"
+      }
+    },
+    {
+      "diesel": {
+        "data_atualizacao": "Atualizado em 30/3/2022, às 0h20",
+        "maior_ultima_data": "2022-03-29",
+        "maior_ultimo_valor": 8.299,
+        "maior_valor_variacao": "27.7% de alta",
+        "mediana_ultima_data": "2022-03-29",
+        "mediana_ultimo_valor": 6.799,
+        "mediana_variacao": "19.3% de alta",
+        "menor_ultima_data": "2022-03-29",
+        "menor_ultimo_valor": 6.388,
+        "menor_valor_variacao": "17.1% de alta"
+      }
+    },
+    {
+      "etanol": {
+        "data_atualizacao": "Atualizado em 30/3/2022, às 0h20",
+        "maior_ultima_data": "2022-03-29",
+        "maior_ultimo_valor": 6.999,
+        "maior_valor_variacao": "22.2% de alta",
+        "mediana_ultima_data": "2022-03-29",
+        "mediana_ultimo_valor": 5.199,
+        "mediana_variacao": "4.0% de alta",
+        "menor_ultima_data": "2022-03-29",
+        "menor_ultimo_valor": 4.799,
+        "menor_valor_variacao": "4.3% de alta"
+      }
+    },
+    {
+      "gasolina aditivada": {
+        "data_atualizacao": "Atualizado em 30/3/2022, às 0h20",
+        "maior_ultima_data": "2022-03-29",
+        "maior_ultimo_valor": 8.499,
+        "maior_valor_variacao": "0.0% de alta",
+        "mediana_ultima_data": "2022-03-29",
+        "mediana_ultimo_valor": 7.199,
+        "mediana_variacao": "9.1% de alta",
+        "menor_ultima_data": "2022-03-29",
+        "menor_ultimo_valor": 4.929,
+        "menor_valor_variacao": "-20.8% de queda"
+      }
+    },
+    {
+      "gnv": {
+        "data_atualizacao": "Atualizado em 30/3/2022, às 0h20",
+        "maior_ultima_data": "2022-03-29",
+        "maior_ultimo_valor": 4.599,
+        "maior_valor_variacao": "-8.0% de queda",
+        "mediana_ultima_data": "2022-03-29",
+        "mediana_ultimo_valor": 4.542,
+        "mediana_variacao": "0.0% de alta",
+        "menor_ultima_data": "2022-03-29",
+        "menor_ultimo_valor": 4.499,
+        "menor_valor_variacao": "0.0% de alta"
+      }
+    }
+  ]
