@@ -1,29 +1,49 @@
 // REQUISICAO API
 
-fetch('dados-api.json')
+// fetch('https://raw.githubusercontent.com/lucasthaynan/litrometroAPIv2/main/api/api-litrometro.json?token=GHSAT0AAAAAABMIDDLFFXUSQ3SFPAEZZZ46YSEVBBA')
+//   .then(response => response.json())
+//   .then(data => {
+
+//     console.log('olá');
+
+//     console.log(data);
+    
+//     })
+
+fetch('https://raw.githubusercontent.com/lucasthaynan/litrometroAPIv2/main/api/api-litrometro.json?token=GHSAT0AAAAAABMIDDLFFXUSQ3SFPAEZZZ46YSEVBBA')
   .then(response => response.json() )
   .then(data => {
 
+    // verificando alguns dados
     console.log(data[0].gasolina.mediana_ultimo_valor);
     console.table(data[0].gasolina);
 
+    // verificando alguns dados
+    console.log(data[1].diesel.mediana_ultimo_valor);
+    console.table(data[1].diesel);
+
+    // data de atualizacao
     let dataAtualizacao = (data[0].gasolina.data_atualizacao);
     document.querySelector('#atualizacao').innerHTML = dataAtualizacao;
 
+    // pegando preco medio
     let precoMedio = (data[0].gasolina.mediana_ultimo_valor);
     document.querySelector('.preco-medio .texto3').innerHTML = precoMedio;
     let precoMedioPerc = (data[0].gasolina.mediana_variacao);
     document.querySelector('.preco-medio .texto4').innerHTML = precoMedioPerc;
 
+    // pegando preco menor
     let precoMenor = (data[0].gasolina.menor_ultimo_valor);
     document.querySelector('.preco-menor .texto3').innerHTML = precoMenor;
     let precoMenorPerc = (data[0].gasolina.menor_valor_variacao);
     document.querySelector('.preco-menor .texto4').innerHTML = precoMenorPerc;
 
+    // pegando preco maior
     let precoMaior = (data[0].gasolina.maior_ultimo_valor);
     document.querySelector('.preco-maior .texto3').innerHTML = precoMaior;
     let precoMaiorPerc = (data[0].gasolina.maior_valor_variacao);
-    document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;
+    document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;   
+
 
   })
 

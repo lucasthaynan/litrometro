@@ -592,3 +592,16 @@ section.container.preco-maior {
         border-radius: 30px;
     } */
 }
+
+
+
+/* ADICIONAR CIRCULO DE LOADING ENQUANDO OS DADOS CARREGAM */
+/* section.container.preco-medio {
+    
+    background-image: url("imagens/loading.png");
+    background-position: center;
+    background-size: cover;
+    
+} */
+
+
