@@ -10,7 +10,7 @@
     
 //     })
 
-fetch('https://raw.githubusercontent.com/lucasthaynan/litrometroAPIv2/main/api/api-litrometro.json?token=GHSAT0AAAAAABMIDDLFFXUSQ3SFPAEZZZ46YSEVBBA')
+fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-litrometro.json')
   .then(response => response.json() )
   .then(data => {
 
