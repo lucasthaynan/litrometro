@@ -158,7 +158,7 @@ section.container.preco-maior {
     padding: 22px 35px;
     display: grid;
     grid-template-columns: 20px 20px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto;    
 
 }
 
@@ -593,10 +593,27 @@ section.container.preco-maior {
     } */
 }
 
-section.preco-menor:not(.dados-carregados) > * {
+section.container.preco-medio:not(.dados-carregados) > *,
+section.container.preco-menor:not(.dados-carregados) > *,
+section.container.preco-maior:not(.dados-carregados) > * {
     opacity: 0;
-    /* background-image: url(../images/); */
+}
 
+section.container.preco-medio,
+section.container.preco-menor,
+section.container.preco-maior {
+    background-image: url(/imagens/loading.gif);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+section.container.preco-medio.dados-carregados,
+section.container.preco-menor.dados-carregados,
+section.container.preco-maior.dados-carregados{
+    background-image: none;
+    background-size: cover;
+    
 }
 
 /* ADICIONAR CIRCULO DE LOADING ENQUANDO OS DADOS CARREGAM */

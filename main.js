@@ -23,7 +23,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
 
     // pegando preco medio
     let precoMedio = (data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);
-    document.querySelector('section.preco-menor').classList.add('dados-carregados')
+    document.querySelector('section.preco-medio').classList.add('dados-carregados')
     document.querySelector('.preco-medio .texto3').innerHTML = precoMedio;
     let precoMedioPerc = (data[valorIndexApi][nomeTipoApi].mediana_variacao);
     document.querySelector('.preco-medio .texto4').innerHTML = precoMedioPerc;
@@ -31,12 +31,14 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     // pegando preco menor
     let precoMenor = (data[valorIndexApi][nomeTipoApi].menor_ultimo_valor);
     document.querySelector('.preco-menor .texto3').innerHTML = precoMenor;
+    document.querySelector('section.preco-menor').classList.add('dados-carregados')
     let precoMenorPerc = (data[valorIndexApi][nomeTipoApi].menor_valor_variacao);
     document.querySelector('.preco-menor .texto4').innerHTML = precoMenorPerc;
 
     // pegando preco maior
     let precoMaior = (data[valorIndexApi][nomeTipoApi].maior_ultimo_valor);
     document.querySelector('.preco-maior .texto3').innerHTML = precoMaior;
+    document.querySelector('section.preco-maior').classList.add('dados-carregados')
     let precoMaiorPerc = (data[valorIndexApi][nomeTipoApi].maior_valor_variacao);    
     document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;  
 
@@ -49,7 +51,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     btns.forEach(button => {button.addEventListener('click', aciona)})
     function aciona(e) {
       
-      e.target.classList.add('ativo');
+      // e.target.classList.add('ativo');
       
 
       
@@ -97,7 +99,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
 
     // pegando preco medio
     let precoMedio = (data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);
-    document.querySelector('section.preco-menor').classList.add('dados-carregados')
+    document.querySelector('section.preco-medio').classList.add('dados-carregados')
     document.querySelector('.preco-medio .texto3').innerHTML = precoMedio;
     let precoMedioPerc = (data[valorIndexApi][nomeTipoApi].mediana_variacao);
     document.querySelector('.preco-medio .texto4').innerHTML = precoMedioPerc;
@@ -105,12 +107,14 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     // pegando preco menor
     let precoMenor = (data[valorIndexApi][nomeTipoApi].menor_ultimo_valor);
     document.querySelector('.preco-menor .texto3').innerHTML = precoMenor;
+    document.querySelector('section.preco-menor').classList.add('dados-carregados')
     let precoMenorPerc = (data[valorIndexApi][nomeTipoApi].menor_valor_variacao);
     document.querySelector('.preco-menor .texto4').innerHTML = precoMenorPerc;
 
     // pegando preco maior
     let precoMaior = (data[valorIndexApi][nomeTipoApi].maior_ultimo_valor);
     document.querySelector('.preco-maior .texto3').innerHTML = precoMaior;
+    document.querySelector('section.preco-maior').classList.add('dados-carregados')
     let precoMaiorPerc = (data[valorIndexApi][nomeTipoApi].maior_valor_variacao);    
     document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;  
 
