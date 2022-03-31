@@ -106,7 +106,7 @@ div.container-buttons {
      
 }
 
-.conteudo-header button:first-child {
+.conteudo-header button.ativo {
     background-color: var(--branco);
     color: var(--laranja-principal);  
 }
@@ -593,7 +593,11 @@ section.container.preco-maior {
     } */
 }
 
+section.preco-menor:not(.dados-carregados) > * {
+    opacity: 0;
+    /* background-image: url(../images/); */
 
+}
 
 /* ADICIONAR CIRCULO DE LOADING ENQUANDO OS DADOS CARREGAM */
 /* section.container.preco-medio {
