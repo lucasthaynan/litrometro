@@ -176,7 +176,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     }
  
 
-  })
+  });
 
 
 // GRÁFICO
@@ -245,10 +245,10 @@ function carregarMaterias(numeroContainerNews) {
 
         })    
     })
-}
+};
 
 for (let materia in listaMaterias) {
   carregarMaterias(materia)
-}
+};
 
   
