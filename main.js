@@ -213,11 +213,7 @@ new Chart("Chart-js", {
 });
 
 
-// REQUISAO POSTS AGENCIA TATURES
-
-let listaMaterias = [0,1,2,3];
-console.log(listaMaterias);
-
+// REQUISAO POSTS AGENCIA TATU
 
 
 function carregarMaterias(numeroContainerNews) {
@@ -246,6 +242,8 @@ function carregarMaterias(numeroContainerNews) {
         })    
     })
 };
+
+let listaMaterias = [0,1,2,3];
 
 for (let materia in listaMaterias) {
   carregarMaterias(materia)
