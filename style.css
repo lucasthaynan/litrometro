@@ -244,6 +244,10 @@ section.container #queda {
     color: #61A449;
 }
 
+section.container #sem-variacao {
+    color: #6CAFDF;
+}
+
 
 section.container.grafico,
 section.container.noticias,
