@@ -31,47 +31,49 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     let dataAtualizacao = (data[0].gasolina.data_atualizacao);
     document.querySelector('#atualizacao').innerHTML = dataAtualizacao;
 
-    // pegando preco medio
-    let precoMedio = (data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);
+    aciona('gasolina-comum')
+
+    // // pegando preco medio
+    // let precoMedio = (data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);
     
-    document.querySelector('section.preco-medio').classList.add('dados-carregados')
-    document.querySelector('.preco-medio .texto3').innerHTML = precoMedio;
-    let precoMedioPerc = (data[valorIndexApi][nomeTipoApi].texto_variacao_mediana);
-    document.querySelector('.preco-medio .texto4').innerHTML = precoMedioPerc;    
+    // document.querySelector('section.preco-medio').classList.add('dados-carregados')
+    // document.querySelector('.preco-medio .texto3').innerHTML = precoMedio;
+    // let precoMedioPerc = (data[valorIndexApi][nomeTipoApi].texto_variacao_mediana);
+    // document.querySelector('.preco-medio .texto4').innerHTML = precoMedioPerc;    
 
-    // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
-    let statusPrecoMedio = (data[valorIndexApi][nomeTipoApi].status_mediana);
-    let elementMedioCirculo = document.querySelector(".preco-medio .circulo"); 
-    console.log(statusPrecoMedio);
-    let elementMedio = document.querySelector(".preco-medio .bloco-percentual");
-    mudarCorVariacao(statusPrecoMedio, elementMedio, elementMedioCirculo);
+    // // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
+    // let statusPrecoMedio = (data[valorIndexApi][nomeTipoApi].status_mediana);
+    // let elementMedioCirculo = document.querySelector(".preco-medio .circulo"); 
+    // console.log(statusPrecoMedio);
+    // let elementMedio = document.querySelector(".preco-medio .bloco-percentual");
+    // mudarCorVariacao(statusPrecoMedio, elementMedio, elementMedioCirculo);
 
     
-    // pegando preco menor
-    let precoMenor = (data[valorIndexApi][nomeTipoApi].menor_ultimo_valor);
-    document.querySelector('.preco-menor .texto3').innerHTML = precoMenor;
-    document.querySelector('section.preco-menor').classList.add('dados-carregados')
-    let precoMenorPerc = (data[valorIndexApi][nomeTipoApi].texto_menor_valor_variacao);
-    document.querySelector('.preco-menor .texto4').innerHTML = precoMenorPerc;
+    // // pegando preco menor
+    // let precoMenor = (data[valorIndexApi][nomeTipoApi].menor_ultimo_valor);
+    // document.querySelector('.preco-menor .texto3').innerHTML = precoMenor;
+    // document.querySelector('section.preco-menor').classList.add('dados-carregados')
+    // let precoMenorPerc = (data[valorIndexApi][nomeTipoApi].texto_menor_valor_variacao);
+    // document.querySelector('.preco-menor .texto4').innerHTML = precoMenorPerc;
 
-    // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
-    let statusPrecoMenor = (data[valorIndexApi][nomeTipoApi].status_menor);   
-    let elementMenorCirculo = document.querySelector(".preco-menor .circulo"); 
-    let elementMenor = document.querySelector(".preco-menor .bloco-percentual");
-    mudarCorVariacao(statusPrecoMenor, elementMenor, elementMenorCirculo);
+    // // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
+    // let statusPrecoMenor = (data[valorIndexApi][nomeTipoApi].status_menor);   
+    // let elementMenorCirculo = document.querySelector(".preco-menor .circulo"); 
+    // let elementMenor = document.querySelector(".preco-menor .bloco-percentual");
+    // mudarCorVariacao(statusPrecoMenor, elementMenor, elementMenorCirculo);
 
-    // pegando preco maior
-    let precoMaior = (data[valorIndexApi][nomeTipoApi].maior_ultimo_valor);
-    document.querySelector('.preco-maior .texto3').innerHTML = precoMaior;
-    document.querySelector('section.preco-maior').classList.add('dados-carregados')
-    let precoMaiorPerc = (data[valorIndexApi][nomeTipoApi].texto_variacao_maior_valor);    
-    document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;  
+    // // pegando preco maior
+    // let precoMaior = (data[valorIndexApi][nomeTipoApi].maior_ultimo_valor);
+    // document.querySelector('.preco-maior .texto3').innerHTML = precoMaior;
+    // document.querySelector('section.preco-maior').classList.add('dados-carregados')
+    // let precoMaiorPerc = (data[valorIndexApi][nomeTipoApi].texto_variacao_maior_valor);    
+    // document.querySelector('.preco-maior .texto4').innerHTML = precoMaiorPerc;  
 
-    // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
-    let statusPrecoMaior = (data[valorIndexApi][nomeTipoApi].status_maior);   
-    let elementMaiorCirculo = document.querySelector(".preco-maior .circulo"); 
-    let elementMaior = document.querySelector(".preco-maior .bloco-percentual");
-    mudarCorVariacao(statusPrecoMaior, elementMaior, elementMaiorCirculo);
+    // // CHAMANDO A FUNÇÃO PARA MUDAR COR DO TEXTO DE VARIAÇÃO
+    // let statusPrecoMaior = (data[valorIndexApi][nomeTipoApi].status_maior);   
+    // let elementMaiorCirculo = document.querySelector(".preco-maior .circulo"); 
+    // let elementMaior = document.querySelector(".preco-maior .bloco-percentual");
+    // mudarCorVariacao(statusPrecoMaior, elementMaior, elementMaiorCirculo);
 
     
 
@@ -81,16 +83,20 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
 
     const btns = document.querySelectorAll('.container-buttons > button')
 
-    btns.forEach(button => {button.addEventListener('click', aciona)})
-    function aciona(e) {
+    btns.forEach(button => {button.addEventListener('click', e => aciona(e.target.id))})
+    function aciona(tipoCombustivel) {
+      const btns = document.querySelectorAll('.container-buttons > button')
+      btns.forEach(button => button.classList.remove('ativo'));
+      document.querySelector('#' + tipoCombustivel).classList.add('ativo');
+
+
       
       // e.target.classList.add('ativo');
       
       // let buttonColor = document.querySelector(".container-buttons button")
       // e.target.style.backgroundColor = "#ffff"
 
-      console.log(e.target.id);
-      let tipoCombustivel = e.target.id;
+      
       console.log(tipoCombustivel);
 
       // document.querySelector('.conteudo-header button > #${tipoCombustivel}').classList.add('.ativo');
@@ -178,50 +184,68 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
 
   });
 
+// JSON DADOS GRAFICO
+
+fetch('dados_historicos_litrometro.json')
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(Object.values(data[0]).filter(d => d != 'Gasolina'))
+
+    var xValues = Object.keys(data[0]).filter(d => d != 'Data');
+
+    new Chart("Chart-js", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          data: Object.values(data[0]).filter(d => d != 'Gasolina'),
+          borderColor: '#E86C72',
+          fill: true,
+          label: 'Gasolina'
+        }]
+        // ,{
+        //   data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,6800,7000, 7200],
+        //   borderColor: "#E9A82F",
+        //   fill: false
+        // },{
+        //   data: [300,700,2000,5000,6000,4000,2000,1000,200,100,100,100],
+        //   borderColor: "#61A449",
+        //   fill: false
+        // }
+      },
+      options: {
+        legend: {display: false},
+
+        interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          
+      }
+    })
+
+
+  }
+    
+
+
+
+  )
+
 
 // GRÁFICO
 
-var xValues = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 
-new Chart("Chart-js", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      data: [860,1140,1060,1060,1070,1110,1330,2210,4800,5000,3002, 2760],
-      borderColor: '#E86C72',
-      fill: false
-    },{
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,6800,7000, 7200],
-      borderColor: "#E9A82F",
-      fill: false
-    },{
-      data: [300,700,2000,5000,6000,4000,2000,1000,200,100,100,100],
-      borderColor: "#61A449",
-      fill: false
-    }]
-  },
-  options: {
-    legend: {display: false},
-
-    interaction: {
-        intersect: false,
-        mode: 'index',
-      },
-      
-  }
-});
 
 
 // REQUISAO POSTS AGENCIA TATU
 
 
 function carregarMaterias(numeroContainerNews) {
-  fetch('https://agenciatatu.com.br/wp-json/wp/v2/posts?tags=69,70,64',{
-    mode:'cors',
-    headers: {  
-      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
-    }})
+  fetch('https://agenciatatu.com.br/wp-json/wp/v2/posts?tags=69,70,64'
+  // ,{mode:'no-cors'}
+  )
     .then(response => response.json())
     .then(data => {
       let tituloMateria = data[numeroContainerNews].title.rendered;
@@ -247,6 +271,7 @@ function carregarMaterias(numeroContainerNews) {
     })
 };
 
+// CHAMANDO A FUNÇÃO DE CARREGAR AS MATERIAS
 let listaMaterias = [0,1,2,3];
 
 for (let materia in listaMaterias) {
