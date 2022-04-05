@@ -133,7 +133,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
 // GERANDO GRAFICO
 
 function grafico_combustivel(valorIndexApi, nomeTipoApi) {
-  fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_historicos_litrometro.json')
+  fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/historico.json')
   .then(response => response.json())
   .then(data => {
 
