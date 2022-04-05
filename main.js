@@ -205,4 +205,3 @@ let listaMaterias = [0,1,2,3];
 for (let materia in listaMaterias) {
   carregarMaterias(materia)
 };
-
