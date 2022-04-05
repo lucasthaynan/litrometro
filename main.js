@@ -189,29 +189,34 @@ function grafico_combustivel(valorIndexApi, nomeTipoApi) {
 
 
 function carregarMaterias(numeroContainerNews) {
-  fetch('https://agenciatatu.com.br/wp-json/wp/v2/posts?tags=69,70,64')
+  fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/materias_tatu.json')
     .then(response => response.json())
     .then(data => {
-      let tituloMateria = data[numeroContainerNews].title.rendered;
-      let urlMateria = data[numeroContainerNews].link; 
-      let apiFotosMateria = data[numeroContainerNews]._links['wp:featuredmedia'][0]['href'];
-      // console.log(tituloMateria);
-      // console.log(urlMateria);
+      console.log('ok')
+      console.log(data)
+      let tituloMateria = data[numeroContainerNews].titulo_materia;
+      let urlMateria = data[numeroContainerNews].url_materia; 
+      let urlFotoMateria = data[numeroContainerNews].url_foto_materia;
+      //     // console.log(urlFotoMateria);
+      // let apiFotosMateria = data[numeroContainerNews]._links['wp:featuredmedia'][0]['href'];
+      console.log(tituloMateria);
+      console.log(urlMateria);
+      console.log(urlFotoMateria)
 
-      fetch(apiFotosMateria)
-        .then(response => response.json() )
-        .then(data => {
-          let urlFotoMateria = data.source_url;
-          // console.log(urlFotoMateria);   
+      // fetch(apiFotosMateria)
+      //   .then(response => response.json() )
+      //   .then(data => {
+      //     let urlFotoMateria = data.source_url;
+      //     // console.log(urlFotoMateria);   
           
-          // ADICIONANDO URL DA MATERIA E FOTOS NA PAGINA        
+      // ADICIONANDO URL DA MATERIA E FOTOS NA PAGINA        
 
-          document.querySelectorAll('section.noticias .news > img')[numeroContainerNews].src = urlFotoMateria;
-          // console.log()
-          document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].href = urlMateria;
-          document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].innerHTML = tituloMateria;
+      document.querySelectorAll('section.noticias .news > img')[numeroContainerNews].src = urlFotoMateria;
+      // console.log()
+      document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].href = urlMateria;
+      document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].innerHTML = tituloMateria;
 
-        })    
+      //   })    
     })
 };
 
