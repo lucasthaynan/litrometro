@@ -200,8 +200,12 @@ function carregarMaterias(numeroContainerNews) {
 };
 
 // CHAMANDO A FUNÇÃO DE CARREGAR AS MATERIAS
-let listaMaterias = [0,1,2,3];
+// let listaMaterias = [0,1,2,3];
 
-for (let materia in listaMaterias) {
-  carregarMaterias(materia)
-};
+// for (let materia in listaMaterias) {
+//   carregarMaterias(materia)
+// };
+carregarMaterias(0);
+carregarMaterias(1);
+carregarMaterias(2);
+carregarMaterias(3);
