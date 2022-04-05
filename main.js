@@ -3,15 +3,15 @@
 function mudarCorVariacao(status, element, elementCirculo) {
   if (status == 'alta') {
     element.style.color = "#E86C72",
-    elementCirculo.src = '/items/alta.svg';
+    elementCirculo.src = './items/alta.svg';
   } 
   if (status == 'queda') {
     element.style.color = "#61A449";
-    elementCirculo.src = '/items/queda.svg';
+    elementCirculo.src = './items/queda.svg';
   } 
   if (status == 'sem-variacao') {
     element.style.color = "#6CAFDF";
-    elementCirculo.src = '/items/sem-variacao.svg';
+    elementCirculo.src = './items/sem-variacao.svg';
   };
 }
 
