@@ -17,12 +17,12 @@ function mudarCorVariacao(status, element, elementCirculo) {
 
 // REQUISICAO API
 
-fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-litrometro.json')
+fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_do_dia_litrometro.json')
   .then(response => response.json() )
   .then(data => {
 
-    console.log(data[0].gasolina)
-    console.table(data[0].gasolina)
+    // console.log(data[0].gasolina)
+    // console.table(data[0].gasolina)
 
     let valorIndexApi = 0;
     let nomeTipoApi = "gasolina";
@@ -41,8 +41,12 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
       const btns = document.querySelectorAll('.container-buttons > button')
       btns.forEach(button => button.classList.remove('ativo'));
       document.querySelector('#' + tipoCombustivel).classList.add('ativo');
+
       
-      console.log(tipoCombustivel);
+
+            
+      
+      // console.log(tipoCombustivel);
 
       if (tipoCombustivel == "gasolina-comum") {
         valorIndexApi = 0, 
@@ -64,13 +68,17 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
         valorIndexApi = 4, 
         nomeTipoApi = "gnv";
       };     
+
+      // GERANDO GRÁFICO POR COMBUSTÍVEL
+      grafico_combustivel(valorIndexApi, nomeTipoApi)
     
 
-    console.log(tipoCombustivel);
-    console.log(valorIndexApi);
-    console.log(nomeTipoApi);
+    // console.log(tipoCombustivel);
+    // console.log(valorIndexApi);
+    // console.log(nomeTipoApi);
 
-    console.log(data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);     
+    // console.log(data[valorIndexApi][nomeTipoApi].mediana_ultimo_valor);     
+    
 
     
 
@@ -115,30 +123,39 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/api-li
     let elementMaiorCirculo = document.querySelector(".preco-maior .circulo"); 
     let elementMaior = document.querySelector(".preco-maior .bloco-percentual");
     mudarCorVariacao(statusPrecoMaior, elementMaior, elementMaiorCirculo);   
+
+    
     
     } 
 
   });
 
-// JSON DADOS GRAFICO
+// GERANDO GRAFICO
 
-fetch('dados_historicos_litrometro.json')
+function grafico_combustivel(valorIndexApi, nomeTipoApi) {
+  fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_historicos_litrometro.json')
   .then(response => response.json())
   .then(data => {
 
-    console.log(Object.values(data[0]).filter(d => d != 'Gasolina'))
+    // console.log(data[0].gasolina.preco_medio)
 
-    var xValues = Object.keys(data[0]).filter(d => d != 'Data');
+    console.log(Object.keys(data[valorIndexApi][nomeTipoApi].preco_medio));
 
-    new Chart("Chart-js", {
+    console.log(Object.values(data[valorIndexApi][nomeTipoApi].preco_medio));
+
+    // console.log(Object.values(data[0]).filter(d => d != 'Gasolina'))
+
+    var grafico = new Chart("Chart-js", {
       type: "line",
       data: {
-        labels: xValues,
+        // valores do eixo X
+        labels: Object.keys(data[valorIndexApi][nomeTipoApi].preco_medio),
         datasets: [{
-          data: Object.values(data[0]).filter(d => d != 'Gasolina'),
+          // valores do eixo Y
+          data: Object.values(data[valorIndexApi][nomeTipoApi].preco_medio),
           borderColor: '#E86C72',
           fill: true,
-          label: 'Gasolina'
+          label: nomeTipoApi
         }]
 
       },
@@ -151,20 +168,21 @@ fetch('dados_historicos_litrometro.json')
           },
           
       }
-    })
-
-
-  }
-    
-
-
-
+    });
+   } 
   )
+
+}
+
 
 
 // GRÁFICO
 
+// function updateChart(){
+//   grafico.data.datasets[0].data = [10,10,30]; grafico.update();
+//   };
 
+// updateChart()
 
 
 // REQUISAO POSTS AGENCIA TATU
@@ -179,19 +197,19 @@ function carregarMaterias(numeroContainerNews) {
       let tituloMateria = data[numeroContainerNews].title.rendered;
       let urlMateria = data[numeroContainerNews].link; 
       let apiFotosMateria = data[numeroContainerNews]._links['wp:featuredmedia'][0]['href'];
-      console.log(tituloMateria);
-      console.log(urlMateria);
+      // console.log(tituloMateria);
+      // console.log(urlMateria);
 
       fetch(apiFotosMateria)
         .then(response => response.json() )
         .then(data => {
           let urlFotoMateria = data.source_url;
-          console.log(urlFotoMateria);   
+          // console.log(urlFotoMateria);   
           
           // ADICIONANDO URL DA MATERIA E FOTOS NA PAGINA        
 
           document.querySelectorAll('section.noticias .news > img')[numeroContainerNews].src = urlFotoMateria;
-          console.log()
+          // console.log()
           document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].href = urlMateria;
           document.querySelectorAll('section.noticias .news > a')[numeroContainerNews].innerHTML = tituloMateria;
 
