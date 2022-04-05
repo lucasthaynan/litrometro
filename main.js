@@ -189,12 +189,7 @@ function grafico_combustivel(valorIndexApi, nomeTipoApi) {
 
 
 function carregarMaterias(numeroContainerNews) {
-  fetch('https://agenciatatu.com.br/wp-json/wp/v2/posts?tags=69,70,64',{
-    mode: 'no-cors',
-    headers: {
-      'Access-Control-Allow-Origin':'*'
-    }}
-  )
+  fetch('https://agenciatatu.com.br/wp-json/wp/v2/posts?tags=69,70,64')
     .then(response => response.json())
     .then(data => {
       let tituloMateria = data[numeroContainerNews].title.rendered;
