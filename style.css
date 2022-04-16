@@ -320,8 +320,7 @@ div.news > a {
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
-    line-height: px;
-
+    
     color: #565656;
     
     padding: 5px 0px 0px 10px;
@@ -620,7 +619,15 @@ section.container.preco-maior.dados-carregados{
     
 }
 
+a {
+    color: var(--cinza-texto);
+    font-weight: bold;
+}
 
+button > a {
+    color: var(--cinza-texto);
+    font-weight: normal;
+}
 /* ADICIONAR CIRCULO DE LOADING ENQUANDO OS DADOS CARREGAM */
 /* section.container.preco-medio {
     
