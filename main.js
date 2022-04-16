@@ -1,5 +1,8 @@
 
-// FUNÇÃO QUE MUDA DE COR O TRECHO DE VARIAÇÃO
+
+
+
+// FUNÇÃO QUE MUDA A COR DO TEXTO E IMAGEM DOS 3 BLOCOS DE VARIAÇÃO DE PREÇO
 function mudarCorVariacao(status, element, elementCirculo) {
   if (status == 'alta') {
     element.style.color = "#E86C72",
@@ -13,10 +16,18 @@ function mudarCorVariacao(status, element, elementCirculo) {
     element.style.color = "#6CAFDF";
     elementCirculo.src = './items/sem-variacao.svg';
   };
-}
+};
 
+// OCULTANDO TODOS OS GRAFICOS DA PÁGINA
+document.querySelectorAll('.grafico_chart_js').forEach(grafico => {
+  console.log(grafico);
+  // ocultando cada um dos gráficos
+  grafico.style.display = 'none';
 
-graficoCombustivel('0', 'gasolina')
+});
+
+// DESOCULTANDO O GRÁFICO DA GASOLINA COMUM
+document.getElementById("chart-gasolina-comum").style.display="block";
 
 
 // REQUISICAO API DOS DADOS DOS 3 PRIMEIROS BLOCOS
@@ -34,16 +45,36 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
     document.querySelector('#atualizacao').innerHTML = dataAtualizacao;
 
     // chamando a função de execução do botão 'gasolina-comum'
-    aciona('gasolina-comum')
+    aciona('gasolina-comum');
 
     // pegando todos os butões de tipos de combustíveis e fazendo uma ação para cada um deles ao ser clicado
-    const btns = document.querySelectorAll('.container-buttons > button')
+    const btns = document.querySelectorAll('.container-buttons > button');
 
-    btns.forEach(button => {button.addEventListener('click', e => aciona(e.target.id))})
+    btns.forEach(button => {button.addEventListener('click', e => {
+      aciona(e.target.id);
+
+      // ocultando todos os gráficos da página
+      document.querySelectorAll('.grafico_chart_js').forEach(grafico => {      
+        grafico.style.display = 'none';      
+      });      
+      
+      // desocultado apenas o gráfico com id referente ao botão clicado
+      document.getElementById("chart-" + button.id).style.display="block";
+
+    }
+    
+    )});
+
+    // btns.forEach(button => {button.addEventListener('click', e => 
+    //     console.log(button.id))};
+    
     function aciona(tipoCombustivel) {
       const btns = document.querySelectorAll('.container-buttons > button')
+      // console.log(btns)
       btns.forEach(button => button.classList.remove('ativo'));
       document.querySelector('#' + tipoCombustivel).classList.add('ativo');    
+
+      // document.getElementsByClassName('.grafico >').style.display="none";
 
       // verificando se a classe do butão tem o mesmo nome das chaves no arquivo JSON (api)
       if (tipoCombustivel == "gasolina-comum") {
@@ -70,7 +101,7 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
       // GERANDO GRÁFICO POR COMBUSTÍVEL
     
 
-      graficoCombustivel(valorIndexApi, nomeTipoApi); 
+     
 
 
     // PEGANDO E EXIBINDO PREÇO MÉDIO
@@ -119,62 +150,21 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
 
   });
 
-// GERANDO GRAFICO
+// GERANDO GRAFICOS
+
+// chamando funções para criar um gráfico para cada tipo de combustível a partir dos dados da API
+graficoCombustivel('0', 'gasolina', 'Gasolina Comum', 'chart-gasolina-comum');
+// document.getElementById("chart-gasolina-comum").style.display="none";
+graficoCombustivel('1', 'diesel', 'Diesel', 'chart-diesel');
+
+graficoCombustivel('2', 'etanol', 'Etanol', 'chart-etanol');
+
+graficoCombustivel('3', 'gasolina aditivada', 'Gasolina Aditivada', 'chart-gasolina-adt');
+
+graficoCombustivel('4', 'gnv', 'GNV', 'chart-gnv');
 
 
-
-// function graficoCombustivelAtualizacao(valorIndexApi, nomeTipoApi) {
-//   fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/historico.json')
-//   .then(response => response.json())
-//   .then(data => {
-
-//     let variaveisGrafico = Object.keys(data[valorIndexApi][nomeTipoApi].preco_medio);
-
-//     let valoresGrafico = Object.values(data[valorIndexApi][nomeTipoApi].preco_medio); 
-
-//     // console.log(valoresGrafico);
-//     // console.log(variaveisGrafico);
-
-//     updateGrafico('grafico', variaveisGrafico, valoresGrafico);
-
-//     console.log('graficoCombustivelAtualizacao')
-    
-    
-//    } 
-//   )
-// }
-
-// function graficoHistotico(variaveisGrafico, valoresGrafico){  
-//   var grafico = new Chart("Chart-js", {
-//     type: "line",
-//     data: {
-//       // valores do eixo X
-//       labels: variaveisGrafico,
-//       datasets: [{
-//         // valores do eixo Y
-//         data: valoresGrafico,
-//         borderColor: '#E86C72',
-//         fill: true,
-//         label: 'Teste'
-//       }]
-
-//     },
-//     options: {
-//       legend: {display: false},
-
-//       interaction: {
-//           intersect: false,
-//           mode: 'index',
-//         },
-        
-//     }
-//   });
-  
-// }
-    
-
-
-function graficoCombustivel(valorIndexApi, nomeTipoApi) {
+function graficoCombustivel(valorIndexApi, nomeTipoApi, tituloGrafico, idGraficoCanvas) {
   fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/historico.json')
   .then(response => response.json())
   .then(data => {
@@ -182,61 +172,49 @@ function graficoCombustivel(valorIndexApi, nomeTipoApi) {
     let variaveisGrafico = Object.keys(data[valorIndexApi][nomeTipoApi].preco_medio);
 
     let valoresGrafico = Object.values(data[valorIndexApi][nomeTipoApi].preco_medio);
-
-    console.log('graficoCombustivel')
-
-    // grafico.destroy();
-
-    console.log('graficoCombustivelTESTE')
-
-    var grafico = new Chart("Chart-js", {
-      type: "line",
-      data: {
-        // valores do eixo X
-        labels: variaveisGrafico,
-        datasets: [{
-          // valores do eixo Y
-          data: valoresGrafico,
-          borderColor: '#E86C72',
-          fill: true,
-          label: nomeTipoApi
-        }]
     
-      },
-      options: {
-        legend: {display: false},
-    
-        interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          
-      }
-    });    
-
-
-    
+    graficoChartJs(variaveisGrafico, valoresGrafico, tituloGrafico, idGraficoCanvas);    
    } 
-  )
+  )};
+
+function graficoChartJs(variaveis, valores, tipoCombustivel, idGraficoCanvas) {
+  var grafico = new Chart(idGraficoCanvas, {
+    type: "line",
+    data: {
+      // valores do eixo X
+      
+      labels: variaveis,        
+      datasets: [
+        {
+        // valores do eixo Y
+        data: valores,
+        borderColor: '#E9A82F',
+        fill: true,
+        label: tipoCombustivel
+      }       
+    ]},
+    options: {
+      legend: {display: false},
+
+      interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+      plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 16,                    
+                }
+            }
+        }
+    }    
+    }
+  });   
+
+  return grafico;
 }
-
-// function resetGrafico() {
-//   grafico.destroy();
-//   grafico.
-
-// }
-
-// function updateGrafico(grafico, variaveisGrafico, valoresGrafico) {{
-//   grafico.data.labels = variaveisGrafico;
-//   grafico.data.datasets.data = valoresGrafico;
-//   };
-//   console.log('Atualização')
-//   chart.update();}
-
-
-
-
-
+  
 
 // REQUISAO POSTS AGENCIA TATU
 
@@ -245,16 +223,10 @@ function carregarMaterias(numeroContainerNews) {
     .then(response => response.json())
     .then(data => {
 
-      // console.log('ok')
-      // console.log(data)
-
       let tituloMateria = data[numeroContainerNews].titulo_materia;
       let urlMateria = data[numeroContainerNews].url_materia; 
       let urlFotoMateria = data[numeroContainerNews].url_foto_materia;
 
-      // console.log(tituloMateria);
-      // console.log(urlMateria);
-      // console.log(urlFotoMateria)
           
       // ADICIONANDO URL DA MATERIA E FOTOS NA PAGINA        
       document.querySelectorAll('section.noticias .news > img')[numeroContainerNews].src = urlFotoMateria;
@@ -273,6 +245,7 @@ carregarMaterias(1);
 carregarMaterias(2);
 carregarMaterias(3);
 
-// grafico_combustivel(2, 'etanol')
-
-// grafico_combustivel(valorIndexApi, nomeTipoApi)
+// AJUSTAR TAMANHO DO GRÁFICO QUANDO A TELA ESTIVER MENOR QUE 450PX DE LARGURA
+if (window.innerWidth <= 450){
+  document.querySelectorAll('canvas').forEach(el => el.setAttribute("height", "400"))
+}
