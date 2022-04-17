@@ -1,1 +1,2 @@
-# litrometro
+# litrômetro
+O Litrômetro é um monitor em tempo real dos preços dos combustíveis em quase 100 postos de Maceió, capital de Alagoas. A página mostra os preços mais altos, baixos e a média em cada dia. Além destas informações, a plataforma traz o histórico dos preços desde o final de 2018, quando os dados começaram a ser coletados.
