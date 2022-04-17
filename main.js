@@ -185,12 +185,13 @@ function graficoChartJs(variaveis, valores, tipoCombustivel, idGraficoCanvas) {
       }       
     ]},
     options: {
-      legend: {display: false},
-
+      legend: {
+        display: false
+      },
       interaction: {
           intersect: false,
           mode: 'index',
-        },
+      },
       plugins: {
         legend: {
             labels: {
