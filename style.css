@@ -46,6 +46,11 @@ div.conteudo-header {
     color: var(--branco);
 }
 
+.conteudo-header img.logo {
+    max-width: 600px;
+    margin: 0 20px;
+}
+
 
 
 .conteudo-header > p {
