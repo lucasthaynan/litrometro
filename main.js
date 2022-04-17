@@ -1,7 +1,4 @@
 
-
-
-
 // FUNÇÃO QUE MUDA A COR DO TEXTO E IMAGEM DOS 3 BLOCOS DE VARIAÇÃO DE PREÇO
 function mudarCorVariacao(status, element, elementCirculo) {
   if (status == 'alta') {
@@ -20,7 +17,7 @@ function mudarCorVariacao(status, element, elementCirculo) {
 
 // OCULTANDO TODOS OS GRAFICOS DA PÁGINA
 document.querySelectorAll('.grafico_chart_js').forEach(grafico => {
-  console.log(grafico);
+  // console.log(grafico);
   // ocultando cada um dos gráficos
   grafico.style.display = 'none';
 
@@ -65,8 +62,6 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
     
     )});
 
-    // btns.forEach(button => {button.addEventListener('click', e => 
-    //     console.log(button.id))};
     
     function aciona(tipoCombustivel) {
       const btns = document.querySelectorAll('.container-buttons > button')
@@ -98,10 +93,6 @@ fetch('https://raw.githubusercontent.com/lucasthaynan/litrometro/main/api/dados_
         nomeTipoApi = "gnv";
       };     
 
-      // GERANDO GRÁFICO POR COMBUSTÍVEL
-    
-
-     
 
 
     // PEGANDO E EXIBINDO PREÇO MÉDIO

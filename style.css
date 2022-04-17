@@ -1,6 +1,4 @@
-* {
-    /* border: 1px solid blue; */
-    
+* {  
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -447,7 +445,6 @@ footer.creditos {
         font-size: 3.5rem;
     }    
 
-    /* INICIO */
 
     div.conteudo-main {
         display: grid;
@@ -460,10 +457,7 @@ footer.creditos {
         padding: 25px 25px;
         
     }
-    
-    /* div.container-buttons {
-        max-width: var(--column-max);  
-    } */
+
     
     section.container.preco-medio {
         grid-column: 1/4;
@@ -492,17 +486,7 @@ footer.creditos {
         min-width: 85vw;
         width: 85vw;
     }
-/* section.container.preco-menor, 
-section.container.preco-maior {
-    flex-grow: 1;
-    width: 100%;
-    height: 163px;
-    padding: 22px;
-    display: grid;
-    grid-template-columns: 20px 20px 1fr;
-    grid-template-rows: auto auto auto;
-} */
-/* FIM */
+
 
     section.noticias {
         display: grid;
@@ -586,14 +570,8 @@ section.container.preco-maior {
         white-space: nowrap;
         max-width: 560px;
         width: 90%;
-    }
-    
-    /* .conteudo-header button {
-        color: #fff;
-        background-color: var(--laranja-segundario);
-        padding: 10px 20px;
-        border-radius: 30px;
-    } */
+    }   
+
 }
 
 section.container.preco-medio:not(.dados-carregados) > *,
@@ -605,7 +583,7 @@ section.container.preco-maior:not(.dados-carregados) > * {
 section.container.preco-medio,
 section.container.preco-menor,
 section.container.preco-maior {
-    background-image: url(/imagens/loading.gif);
+    background-image: url(./imagens/loading.gif);
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;    
@@ -628,13 +606,12 @@ button > a {
     color: var(--cinza-texto);
     font-weight: normal;
 }
-/* ADICIONAR CIRCULO DE LOADING ENQUANDO OS DADOS CARREGAM */
-/* section.container.preco-medio {
-    
-    background-image: url("imagens/loading.png");
-    background-position: center;
-    background-size: cover;
-    
-} */
+
+button > a:hover, p > a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--laranja-principal);    
+
+}
+
 
 
